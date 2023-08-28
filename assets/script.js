@@ -42,6 +42,13 @@ bannerDiv.appendChild(rightArrow);
 
 
 //Etape 2 : Ajoutez des Event Listeners sur les flèches 
-let baliseArrow = document.querySelector(".arrow");
-console.log(baliseArrow);
+let baliseArrowLeft = document.querySelector(".arrow_left");
+baliseArrowLeft.addEventListener("click",function(){
+	console.log("Image Précédente")
+});
+let baliseArrowRight = document.querySelector(".arrow_right");
+baliseArrowRight.addEventListener("click",function(){
+	console.log("Image Suivante")
+});
+//le clic droit ne fait rien du tout. Du coup est ce vraiment une différenciation ?
 
