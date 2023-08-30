@@ -52,3 +52,19 @@ baliseArrowRight.addEventListener("click",function(){
 });
 //le clic droit ne fait rien du tout. Du coup est ce vraiment une différenciation ?
 
+//Etape 3 : creation des bullet points
+
+//creation d'un bullet point :
+
+//récupération du conteneur parent
+let bulletPointsContainer = document.querySelector(".dots");
+
+//stockage du nombre d'objets dans une variable
+let nbSlides=slides.length
+
+//boucle de création de bullet points
+for (let s = 0; s<nbSlides; s++){
+	let bulletPoint = document.createElement("i");
+	bulletPoint.classList="dot";
+	bulletPointsContainer.appendChild(bulletPoint);
+}
