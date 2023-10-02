@@ -21,8 +21,6 @@ const firstImage = document.querySelector(".banner-img");
 const bulletPointsContainer = document.querySelector(".dots");
 const tagLineImg = document.querySelector("#banner p")
 
-//recup tous les enfants de la div
-const children = bannerDiv.children;
 
 //Pour suivre la diapo actuelle	
 let currentSlide = 0;
@@ -48,7 +46,6 @@ rightArrow.src = adress_img_2;
 rightArrow.style.zIndex=200
 
 //placement de la première flèche là où elle doit être dans le DOM
-//const bannerDiv = document.getElementById("banner"); //recuperation du parent (ligne25)
 bannerDiv.appendChild(leftArrow);//definition de l'enfant 1
 
 //placement de la deuxième flèche là où elle doit être
@@ -68,17 +65,13 @@ for (let s = 0; s < nbSlides; s++){
 }
 //Objectif de la fonction : s'assurer que le bon nombre de diapo est pris en compte
 
-	function setSelectedSlide (slideNumber){ //mise en place d'une fonction 
+	function setSelectedSlide (slideNumber){ //mise en place d'une fonction qui va gérer le changement de diapos
 
-		if (slideNumber<0 || slideNumber>=nbSlides){ //si inférieur à 0 ou sup à 3 alors return
-			return
-		}
 		bulletPoints[currentSlide].classList.remove('dot_selected');//enlever le .dot_selected
 		bulletPoints[slideNumber].classList.add('dot_selected');//ajouter le .dot_selected
 		currentSlide=slideNumber
 
-		//const slideImage = bannerDiv.querySelector(".banner-img");
-	firstImage.src="./assets/images/slideshow/" + slides[slideNumber].image;
+	firstImage.src="./assets/images/slideshow/" + slides[slideNumber].image; //récupération du nom de l'image dans le tableau et mise à jour de l'url
 
 	tagLineImg.innerHTML=slides[slideNumber].tagLine;
 	
@@ -101,7 +94,6 @@ baliseLeftArrow.addEventListener("click", function(){
 baliseRightArrow.addEventListener("click", function(){
 	
 	setSelectedSlide((currentSlide + 1) % nbSlides);
-	
 	
 });
 
